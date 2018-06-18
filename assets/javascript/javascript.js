@@ -12,6 +12,8 @@ var topics = ["Pokemon", "Family Guy", "South Park", "Kim Possible", "Spongebob 
 // Functions 
 
 function createButtons(){
+    $("#button-container").empty();
+
 	for(var i = 0; i < topics.length; i++) {
 		var newButton = $("<button>");
 		newButton.addClass("cartoon-btn"); //for styling in CSS
@@ -40,6 +42,7 @@ function createButtons(){
 
             for (var i = 0; i < 15; i++) {
                 var cartoonDiv = $("<div>");
+                cartoonDiv.addClass("ratingAndGif");
                 var p = $("<p>").text("Rating: " + results[i].rating);
                 var cartoonImage = $("<img>");
                 cartoonImage.attr("src", results[i].images.fixed_height_still.url);
@@ -47,14 +50,17 @@ function createButtons(){
                 cartoonDiv.append(cartoonImage);
                 $("#gifs-appear-here").prepend(cartoonDiv);
               }
-
-
-
-
+        })
     })
-})
 
+}
 
+$("#add-cartoon").on("click", function(event) {
+    event.preventDefault();
+    var newCartoon = $("#cartoon-input").val().trim();
+    topics.push(newCartoon);
+    createButtons();
+  });
 
 
 
@@ -63,7 +69,7 @@ function createButtons(){
           
   
 
-      };
+
 
 // Call Functions
 

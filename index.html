@@ -5,16 +5,36 @@
 <title>90's Cartoons Are GifTastic!</title>
 
     <link rel-"stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
 <body>
 
-<div id="button-container">
+<div class = "wrapper">
+
+<div class="row">
+    <div class="col-lg-12">
+        <div id="button-container">
+        </div>
+    </div>
 </div>
 
-<div id="gifs-appear-here">
+<div class ="row">
+    <div id="gifs-appear-here" class="col-lg-9">
+    </div>
+
+    <div class="col-sm-3">
+        <form id="cartoon-form">
+                <label for="cartoon-input">Add a cartoon!</label>
+                <br>
+                <input type="text" id="cartoon-input">
+                <br>
+                <input id="add-cartoon" type="submit" value="Add a cartoon!">
+    </div>
+</div>
+
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
