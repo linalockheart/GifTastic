@@ -5,10 +5,6 @@ var topics = ["Pokemon", "Family Guy", "South Park", "Kim Possible", "Spongebob 
             "Hey Arnold!", "Arthur","Recess", "Dexter's Laboratory", "Sailor Moon", "Aaahh!!! Real Monsters",
             "Magic School Bus", "Batman: The Animated Series", "Angry Beavers", "Rocket Power", "Digimon"];
 
-// var gifsDisplayed = 10;
-
-// var gifRating = "PG13";
-
 // Functions 
 
 function createButtons(){
@@ -30,7 +26,6 @@ function createButtons(){
         cartoon + "&api_key=1iAR8M7tDiwTHFtGCIIKpbicRTTCb1Aj";
         console.log(queryURL);
 
-          
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -45,11 +40,29 @@ function createButtons(){
                 cartoonDiv.addClass("ratingAndGif");
                 var p = $("<p>").text("Rating: " + results[i].rating);
                 var cartoonImage = $("<img>");
+                cartoonImage.addClass("gif"); // this is also new
                 cartoonImage.attr("src", results[i].images.fixed_height_still.url);
+                cartoonImage.attr("data-state", "still"); //// this is new
+                cartoonImage.attr("data-still", results[i].images.fixed_height_still.url); //new
+                cartoonImage.attr("data-animate", results[i].images.fixed_height.url); //new
                 cartoonDiv.append(p);
                 cartoonDiv.append(cartoonImage);
                 $("#gifs-appear-here").prepend(cartoonDiv);
-              }
+            }
+              $(".gif").on("click", function() {
+                var state = $(this).attr("data-state");
+                console.log(state);
+                if (state === "still") {
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    $(this).attr("data-state", "animate");
+                } 
+                else {
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
+                }
+            
+            })
+            
         })
     })
 
