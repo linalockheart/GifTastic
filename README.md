@@ -14,7 +14,7 @@ Click a gif to animate it, click again to pause it.
   <li>Bootstrap</li>
   <li>Javascript</li>
   <li>jQuery</li>
-  <li>Giphy API<li>
+  <li>Giphy API</li>
   </ul>
 
 <h2>Please visit my deployed project on GitHub pages!</h2>
